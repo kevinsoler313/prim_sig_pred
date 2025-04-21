@@ -1,3 +1,9 @@
+Integrantes
+Juan David Sanchez Vargas
+Kevin Manuel Soler Uribe
+Santiago Camacho Teatino
+
+
 
 📘 Cálculo de Conjuntos FIRST, FOLLOW y PREDICTION para Gramáticas
 Este proyecto implementa el análisis sintáctico de gramáticas mediante el cálculo de los conjuntos FIRST, FOLLOW y PREDICTION usando Python.
