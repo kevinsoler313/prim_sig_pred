@@ -14,9 +14,7 @@ PREDICTION: Conjunto de símbolos que predicen qué producción aplicar, útil p
 Esto es especialmente útil en cursos de teoría de lenguajes, compiladores o análisis sintáctico.
 
 🧠 Ejemplo de Gramáticas
-python
-Copiar
-Editar
+
 grammar1 = {
     'S': [['A', 'uno', 'B', 'C'], ['S', 'dos']],
     'A': [['B', 'C', 'D'], ['A', 'tres'], ['ε']],
@@ -24,9 +22,7 @@ grammar1 = {
     'C': [['cinco', 'D', 'B'], ['ε']],
     'D': [['seis'], ['ε']]
 }
-python
-Copiar
-Editar
+
 grammar2 = {
     'S': [['A', 'B', 'uno']],
     'A': [['dos', 'B'], ['ε']],
@@ -38,8 +34,7 @@ grammar2 = {
 Solo necesitas ejecutar el script en Python:
 
 bash
-Copiar
-Editar
+
 python3 nombre_del_archivo.py
 El programa imprimirá para cada gramática:
 
