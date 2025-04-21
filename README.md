@@ -52,3 +52,64 @@ compute_follow(grammar, first_sets, start_symbol): Calcula el conjunto FOLLOW.
 compute_predictions(grammar, first_sets, follow_sets): Calcula el conjunto PREDICTION.
 
 Se procesan múltiples gramáticas en una lista gramaticas.
+
+CONJUNTOS DE PRIMEROS, SIGUIENTES Y PREDICCION DE LAS GRAMATICAS
+
+--------------------------------------------------------------------------------------------------
+GRAMATICA 1
+
+--CONJUNTO PRIMEROS-- 
+D = ε, seis 
+C = cuatro, cinco  
+B = ε, tres, cuatro, cinco 
+A = ε, dos 
+S = dos, uno, tres, cuatro, cinco
+
+--CONJUNTO FOLLOW-- 
+S = $ 
+A = uno, tres, cuatro, cinco, seis 
+B = uno, tres, cuatro, cinco, seis 
+C = uno, tres, cuatro, cinco, seis 
+D = uno, tres, cuatro, cinco, seis 
+
+--PREDICCIONES-- 
+PRED(S -> A B uno) = {'dos', 'uno', 'cuatro', 'cinco', 'tres'}        
+PRED(A -> dos B) = {'dos'} 
+PRED(A -> ε) = {'cinco', 'tres', 'uno', 'cuatro', 'seis'} 
+PRED(B -> C D) = {'cinco', 'cuatro'} 
+PRED(B -> tres) = {'tres'} 
+PRED(B -> ε) = {'cinco', 'tres', 'uno', 'cuatro', 'seis'} 
+PRED(C -> cuatro A B) = {'cuatro'} 
+PRED(C -> cinco) = {'cinco'} 
+PRED(D -> seis) = {'seis'} 
+PRED(D -> ε) = {'cinco', 'tres', 'uno', 'cuatro', 'seis'} 
+
+--------------------------------------------------------------------------------------------------
+GRAMATICA 2
+
+--CONJUNTO PRIMEROS-- 
+D = ε, seis 
+C = ε, cinco 
+B = ε, seis, cuatro 
+A = ε, tres, seis, cuatro, cinco 
+S = tres, seis, cuatro, cinco, uno  
+
+--CONJUNTO FOLLOW-- 
+S = $, dos 
+A = uno, tres 
+B = $, dos, cinco, seis, uno, tres 
+C = $, dos, seis, uno, tres 
+D = $, dos, uno, tres, cuatro, seis 
+
+--PREDICCIONES-- 
+PRED(S -> A uno B C) = {'seis', 'cuatro', 'cinco', 'uno', 'tres'}     
+PRED(S -> S dos) = {'seis', 'cuatro', 'cinco', 'uno', 'tres'}         
+PRED(A -> B C D) = {'seis', 'cuatro', 'cinco', 'uno', 'tres'}         
+PRED(A -> A tres) = {'seis', 'cuatro', 'cinco', 'tres'} 
+PRED(A -> ε) = {'uno', 'tres'} 
+PRED(B -> D cuatro C tres) = {'seis', 'cuatro'} 
+PRED(B -> ε) = {'seis', 'cinco', 'uno', 'tres', 'dos', '$'} 
+PRED(C -> cinco D B) = {'cinco'} 
+PRED(C -> ε) = {'seis', 'uno', 'tres', 'dos', '$'} 
+PRED(D -> seis) = {'seis'} 
+PRED(D -> ε) = {'seis', 'cuatro', 'uno', 'tres', 'dos', '$'} 
