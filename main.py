@@ -1,14 +1,22 @@
-grammar5 = {
-    'S': [['A', 'B', 'C', "S'"]],
-    "S'": [['uno', "S'"], ['ε']],
-    'A': [['dos', 'B', 'C'], ['ε']],
-    'B': [['C', 'tres'], ['ε']],
-    'C': [['cuatro', 'B'], ['ε']]
+
+grammar1 = {
+    'S': [['A', 'uno', 'B', 'C'], ['S', 'dos']],
+    'A': [['B', 'C', 'D'], ['A', 'tres'], ['ε']],
+    'B': [['D', 'cuatro', 'C', 'tres'], ['ε']],
+    'C': [['cinco', 'D', 'B'], ['ε']],
+    'D': [['seis'], ['ε']]
+}
+grammar2 = {
+    'S': [['A', 'B', 'uno']],
+    'A': [['dos', 'B'], ['ε']],
+    'B': [['C', 'D'], ['tres'], ['ε']],
+    'C': [['cuatro', 'A', 'B'], ['cinco']],
+    'D': [['seis'], ['ε']]
 }
 
+gramaticas = [grammar1,grammar2]
 
 
-gramaticas = [grammar5]
 
 def compute_first(grammar):
     first = {non_terminal: set() for non_terminal in grammar}
